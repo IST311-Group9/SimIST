@@ -6,28 +6,41 @@
 
 package entities;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author Jon
  */
-//Aaron's team is working on the subclasses, so we focused on the person class primarily
-//public class Player extends Person{
-//    
-//    
-//    public Player(){
-//        super("Player");
-//    }
-//    
-//    //Players will be given skill points and allowed to add them into whatever category they want
-//    //this method is used to clear the randomly generated stats
-//    public void clearPlayerStats(){
-//        super.setAttractiveness(0);
-//        super.setCharisma(0);
-//        super.setDisipline(0);
-//        super.setIntelligence(0);
-//        super.setLuck(0);
-//        //super.setStress(stress);
-//        //Players will be given a set starting stress level
-//    }
-//    
-//}
+
+    public class Player extends Person
+    {
+        private int dx;
+        private int dy;
+
+        public Player(String fName, String lName, int age, int dx, int dy)
+        {
+            super(fName, lName, age);
+            this.dx = 0;
+            this.dy = 0;
+            this.setBounds(200, 50, 30, 30);
+        }
+
+        public void move() {
+            this.x += dx;
+            this.y += dy;
+        }
+
+        public void setDx(int dx) {
+            this.dx = dx;
+        }
+
+        public void setDy(int dy) {
+            this.dy = dy;
+        }
+
+        public void paintComponent(Graphics g) {
+            move();
+            g.drawRect(x, y, 30, 30);
+}
+}
