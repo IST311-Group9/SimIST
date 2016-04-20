@@ -8,15 +8,12 @@ package entities;
 
 import java.awt.Graphics;
 
-/**
- *
- * @author Jon
- */
 
     public class Player extends Person
     {
         private int dx;
         private int dy;
+        private Boolean isPlayer;
 
         public Player(String fName, String lName, int age, int dx, int dy)
         {
@@ -24,6 +21,7 @@ import java.awt.Graphics;
             this.dx = 0;
             this.dy = 0;
             this.setBounds(200, 50, 30, 30);
+            isPlayer = true;
         }
 
         public void move() {
@@ -43,4 +41,13 @@ import java.awt.Graphics;
             move();
             g.drawRect(x, y, 30, 30);
 }
+        public String getInfo()
+        {
+            super.getInfo();
+            return(", Player: " + this.getIsPlayer());
+        }
+        public Boolean getIsPlayer() 
+        {
+            return isPlayer;
+        }
 }
