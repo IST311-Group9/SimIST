@@ -20,10 +20,38 @@ public class Professor extends Person
         this.degree = degree;
         this.salary = salary;
     }
+    public String getInfo()
+    {
+        super.getInfo();
+        return(", Degree: " + this.getDegree() + " Salary: " + this.getSalary());
+    }
 
-//    public String getInfo()
-//    {
-//        return super.getInfo();
-//    }
+    /**
+     * @return the degree
+     */
+    public String getDegree() {
+        return degree;
+    }
+
+    /**
+     * @param degree the degree to set
+     */
+    public void setDegree(String degree) {
+        this.degree = degree;
+    }
+
+    /**
+     * @return the salary
+     */
+    public int getSalary() {
+        return salary;
+    }
+
+    /**
+     * @param salary the salary to set
+     */
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
 
 }

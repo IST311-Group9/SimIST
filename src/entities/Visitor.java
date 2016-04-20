@@ -11,12 +11,18 @@ package entities;
  */
 public class Visitor extends Person
 {
-    private int collegeAffinity;
+    private Boolean visitor;
     
     public Visitor(String fName, String lName, int age)
     {
         super(fName, lName, age);
-        collegeAffinity = 0;
+        visitor = true;
+    }
+    
+    public String getInfo()
+    {
+     super.getInfo();
+     return(", Visitor: " + this.getVisitor());
     }
     
 //    public String getInfo()
@@ -24,4 +30,18 @@ public class Visitor extends Person
 //       return super.getInfo();
 //        
 //    }
+
+    /**
+     * @return the visitor
+     */
+    public Boolean getVisitor() {
+        return visitor;
+    }
+
+    /**
+     * @param visitor the visitor to set
+     */
+    public void setVisitor(Boolean visitor) {
+        this.visitor = visitor;
+    }
 }
