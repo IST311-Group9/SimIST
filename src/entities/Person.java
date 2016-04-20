@@ -1,9 +1,9 @@
 
 package entities;
 
-import java.util.ArrayList;
+import java.awt.Rectangle;
 
-public class Person {
+public class Person extends Rectangle{
     private String fName;
     private String lName;
     private int age;

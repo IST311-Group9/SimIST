@@ -144,7 +144,7 @@ public class Room extends JPanel implements ActionListener, KeyListener{
     public void paintComponent(Graphics g){
        super.paintComponent(g);
        g.clearRect(0, 0, this.getWidth(), this.getHeight());
-       player1.paintComponenet(g);
+       player1.paintComponent(g);
        paintDesks(g);
           
         
@@ -231,80 +231,29 @@ class Desk extends Rectangle{
     
 }
 
-class Player extends Rectangle{
-    private int dx;
-    private int dy;
-    private final Dimension size;
-    private Image skydiverImage;
-    private final int skydiverSize;
-    private final int skydiverSpeed;
-    
-   
-    public Player(int panelWidth, int panelHeight){
-        
-        this.size = new Dimension(panelWidth, panelHeight);
-        this.skydiverSize = 50;
-        this.skydiverSpeed = 10;
-        this.setBounds(0, 50, skydiverSize, skydiverSize);        
-        
-    }
-
-    public void move() {
-        this.x += dx;
-        this.y += dy;
-    }
-    
-    
-    public void keyPressed(KeyEvent e){
-        if(e.getKeyCode() == KeyEvent.VK_LEFT)
-        {
-            this.dx = -20;
-        }
-        else if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-        {
-            this.dx = 20;
-        }
-        if(e.getKeyCode() == KeyEvent.VK_UP)
-        {
-            this.dy = -20;
-        }
-        else if(e.getKeyCode() == KeyEvent.VK_DOWN)
-        {
-            this.dy = 20;
-        }
-    }
-    
-    public void keyReleased(KeyEvent e){
-        this.dx = 0;
-        this.dy = 0;
-    }
-    
-    public void paintComponenet(Graphics g){
-        
-        move();
-        g.setColor(Color.BLUE);
-        g.drawRect(x, y, width, height);
-    }
-    
-    public double getX(){
-        return this.x;
-    }
-    
-    public void setDx(int dx){
-        this.x+=dx;
-    }
-    
-    public double getY(){
-        return this.x;
-    }
-    
-    public void setDy(int dy){
-        this.x+=dx;
-    }
-    
-    
-    
-}
+//class Player extends Rectangle{
+//    private int dx;
+//    private int dy;
+//    
+//    
+//   
+//    public Player(int panelWidth, int panelHeight){
+//        
+//        this.size = new Dimension(panelWidth, panelHeight);
+//        this.skydiverSize = 50;
+//        this.skydiverSpeed = 10;
+//        this.setBounds(0, 50, skydiverSize, skydiverSize);        
+//        
+//    }
+//    
+//    
+//    
+//    
+//    
+//    
+//    
+//    
+//}
 
 /**
  *
