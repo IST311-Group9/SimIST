@@ -23,6 +23,7 @@ import models.CharacterMovement;
 import models.Customer;
 import models.RoomEntry;
 import models.AbpEntry;
+import entities.Player;
 
 /**
  *
@@ -36,7 +37,7 @@ public class Floor1 extends JPanel implements ActionListener, KeyListener{
     private FloorController controller;
     private ArrayList<Room> rooms;
     private ArrayList<RoomEntry> entries;
-    private player player1;
+    private Player player1;
     private AbpEntry entry1;
     private AuBonPainPanel abp1;
     private Customer cust1;
@@ -60,7 +61,7 @@ public class Floor1 extends JPanel implements ActionListener, KeyListener{
         entries.add(new RoomEntry(206, 50, 200, rooms.get(2)));
         entries.add(new RoomEntry(208, 50, 250, rooms.get(3)));
         entries.add(new RoomEntry(210, 50, 300, rooms.get(4)));
-        player1 = new player();
+        player1 = new Player("Test", "Player", 21);
         cust1 = new Customer(new Dimension(800, 600));
         charMove1 = new CharacterMovement();
         abp1 = new AuBonPainPanel(cust1, charMove1);
@@ -111,22 +112,22 @@ public class Floor1 extends JPanel implements ActionListener, KeyListener{
     }
 
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            player1.setDx(-20);
-
-            System.out.println("Typed");
-        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            player1.setDx(20);
-        } else if (e.getKeyCode() == KeyEvent.VK_UP) {
-            player1.setDy(-20);
-        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            player1.setDy(20);
-        }
+        player1.keyPressed(e);
+//        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+//            player1.setDx(-20);
+//
+//            System.out.println("Typed");
+//        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+//            player1.setDx(20);
+//        } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+//            player1.setDy(-20);
+//        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+//            player1.setDy(20);
+//        }
     }
 
     public void keyReleased(KeyEvent e) {
-        player1.setDx(0);
-        player1.setDy(0);
+        player1.keyReleased(e);
     }
 
     private class player extends Rectangle {

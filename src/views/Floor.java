@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import controllers.*;
+import entities.Player;
 
 /**
  *
@@ -28,7 +29,7 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
    private Image floorImage;
    private Timer refreshTimer;
    private ArrayList<Room> rooms;
-   private player player1;
+   private Player player1;
    private Room206 room206;
    
    public Floor(String floorName){
@@ -38,7 +39,7 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
        //this.floorImage = floorImage;
        rooms = new ArrayList<>();
        rooms.add(new Room(3, 50,50));
-       player1 = new player();
+       player1 = new Player("Test", "Player", 21);
        this.addKeyListener(this);
        setFocusable(true);
        requestFocusInWindow();
@@ -120,27 +121,27 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
     
     
     
-    private class player extends Rectangle{
-         private int dx;
-        public player(){
-            this.dx = 0;
-            
-            this.setBounds(100, 50, 30, 30);
-        }
-        
-        public void move(){
-            this.x+=dx;
-        }
-        
-        public void setDx(int dx){
-            this.dx = dx;
-        }
-        
-        public void paintComponent(Graphics g){
-            move();
-            g.drawRect(x, y, 30, 30);
-        }
-    }
+//    private class player extends Rectangle{
+//         private int dx;
+//        public player(){
+//            this.dx = 0;
+//            
+//            this.setBounds(100, 50, 30, 30);
+//        }
+//        
+//        public void move(){
+//            this.x+=dx;
+//        }
+//        
+//        public void setDx(int dx){
+//            this.dx = dx;
+//        }
+//        
+//        public void paintComponent(Graphics g){
+//            move();
+//            g.drawRect(x, y, 30, 30);
+//        }
+//    }
  
    private class Room extends Rectangle{
        private int roomNum;
