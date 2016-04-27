@@ -19,7 +19,7 @@ import java.awt.event.KeyEvent;
         private int dy;
         private Boolean isPlayer;
 //        private final Dimension size;
-        private Image playerImage;
+//        private Image playerImage;
         private final int playerSize;
         private final int playerSpeed;
         private int intelligence;
