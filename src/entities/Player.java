@@ -22,12 +22,20 @@ import java.awt.event.KeyEvent;
         private Image playerImage;
         private final int playerSize;
         private final int playerSpeed;
-
-        public Player(String fName, String lName, int age)
+        private int intelligence;
+        private int luck;
+        private int attractiveness;
+        private int charisma;
+        
+        public Player(String fName, String lName, int age, int intelligence, int luck, int attractiveness, int charisma)
         {
             super(fName, lName, age);
             this.dx = 0;
             this.dy = 0;
+            this.intelligence = intelligence;
+            this.luck = luck;
+            this.attractiveness = attractiveness;
+            this.charisma = charisma;
 //            this.setBounds(200, 50, 30, 30);
             isPlayer = true;
             this.playerSize = 50;
@@ -110,4 +118,60 @@ import java.awt.event.KeyEvent;
 //        g.setColor(Color.BLUE);
 //        g.drawRect(x, y, width, height);
 //    }
+
+    /**
+     * @return the intelligence
+     */
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    /**
+     * @param intelligence the intelligence to set
+     */
+    public void setIntelligence(int intelligence) {
+        this.intelligence = intelligence;
+    }
+
+    /**
+     * @return the luck
+     */
+    public int getLuck() {
+        return luck;
+    }
+
+    /**
+     * @param luck the luck to set
+     */
+    public void setLuck(int luck) {
+        this.luck = luck;
+    }
+
+    /**
+     * @return the attractiveness
+     */
+    public int getAttractiveness() {
+        return attractiveness;
+    }
+
+    /**
+     * @param attractiveness the attractiveness to set
+     */
+    public void setAttractiveness(int attractiveness) {
+        this.attractiveness = attractiveness;
+    }
+
+    /**
+     * @return the charisma
+     */
+    public int getCharisma() {
+        return charisma;
+    }
+
+    /**
+     * @param charisma the charisma to set
+     */
+    public void setCharisma(int charisma) {
+        this.charisma = charisma;
+    }
 }
