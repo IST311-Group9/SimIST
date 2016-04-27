@@ -5,6 +5,7 @@
  */
 package views;
 
+import java.awt.LayoutManager;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,7 +16,8 @@ import javax.swing.JTextField;
  *
  * @author Adam
  */
-public class PlayerCreator extends JFrame{
+public class PlayerCreator extends JFrame implements LayoutManager{
+    
     private JLabel FirstName;
     private JTextField fNameField;
     private JLabel LastName;
@@ -91,6 +93,11 @@ public class PlayerCreator extends JFrame{
     
     
     
+    }
+    public void setup(){
+        
+        
+        
     }
     
     
