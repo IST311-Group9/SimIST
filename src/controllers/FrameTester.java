@@ -34,7 +34,7 @@ public class FrameTester {
     public FrameTester() {
         frame = new TestFrame();
         frame.setLocationRelativeTo(null);
-        setup();
+        //Set();
         refreshPane();
     }
 
@@ -45,7 +45,7 @@ public class FrameTester {
         panel.requestFocusInWindow();
     }
 
-    private void setup() {
+    private void setupButtonPanel() {
         frame.setLayout(new GridLayout(2, 3));
 
         auBon = new JButton("Au Bon Pain");

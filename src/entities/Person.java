@@ -21,7 +21,7 @@ public class Person extends Rectangle{
 //     fnames.add("Levi");
 //     fnames.add("Sarah");
 //     fnames.add("Emily");
-//     lnames.add("McFarland");
+//     lnames.add("McFarland"); 
 //     lnames.add("Maimone");
 //     lnames.add("Smith");
     }
