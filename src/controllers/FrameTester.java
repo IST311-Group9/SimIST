@@ -146,7 +146,7 @@ public class FrameTester {
             
             if (o == floor1) {
                 try {
-                    FrameTester frame = new FrameTester(new Floor1("test", new FloorController()));
+                    FrameTester frame = new FrameTester(new Floor1("test", new FloorController(),Player1));
                 } catch (Exception ex) {
                 }
             }

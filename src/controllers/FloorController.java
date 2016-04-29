@@ -8,11 +8,13 @@ public class FloorController {
     private GameFrame frame1;
     private Floor1 floor1;
     private Room room1;
+    private Player Player1;
    
     
     public FloorController(){
+        Player1 = new Player("Test", "Player", 20, 0, 0, 0, 0);
         frame1 = new GameFrame("Test Room");
-        floor1 = new Floor1("Floor", this);
+        floor1 = new Floor1("Floor", this, Player1);
         frame1.add(floor1);
         floor1.setFocusable(true);
         floor1.requestFocusInWindow();

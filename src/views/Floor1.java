@@ -37,13 +37,13 @@ public class Floor1 extends JPanel implements ActionListener, KeyListener{
     private FloorController controller;
     private ArrayList<Room> rooms;
     private ArrayList<RoomEntry> entries;
-    private Player player1;
     private AbpEntry entry1;
     private AuBonPainPanel abp1;
     private Customer cust1;
     private CharacterMovement charMove1;
+    private Player Player1;
 
-    public Floor1(String floorName, FloorController cont1) {
+    public Floor1(String floorName, FloorController cont1, Player Player1) {
         this.floorName = floorName;
         this.controller = cont1;
         refreshTimer = new Timer(50, this);
@@ -61,7 +61,7 @@ public class Floor1 extends JPanel implements ActionListener, KeyListener{
         entries.add(new RoomEntry(206, 50, 200, rooms.get(2)));
         entries.add(new RoomEntry(208, 50, 250, rooms.get(3)));
         entries.add(new RoomEntry(210, 50, 300, rooms.get(4)));
-        player1 = new Player("Test", "Player", 21,0,0,0,0);
+        this.Player1 = Player1;
         cust1 = new Customer(new Dimension(800, 600));
         charMove1 = new CharacterMovement();
         abp1 = new AuBonPainPanel(cust1, charMove1);
@@ -77,7 +77,7 @@ public class Floor1 extends JPanel implements ActionListener, KeyListener{
 
         g.clearRect(0, 0, this.getWidth(), this.getHeight());
 
-        player1.paintComponent(g);
+        Player1.paintComponent(g);
         for (int i = 0; i < entries.size() - 1; i++) {
             entries.get(i).paintComponent(g);
         }
@@ -89,12 +89,12 @@ public class Floor1 extends JPanel implements ActionListener, KeyListener{
         }
 
         for (int i = 0; i < entries.size(); i++) {
-            if (player1.intersects(entries.get(i))) {
+            if (Player1.intersects(entries.get(i))) {
                 controller.floorToRoom(entries.get(i).getRoom());
 
             }
         }
-        if (player1.intersects(entry1)) {
+        if (Player1.intersects(entry1)) {
            controller.floorToAbp(entry1.getAbpPanel());
         }
     }
@@ -112,7 +112,7 @@ public class Floor1 extends JPanel implements ActionListener, KeyListener{
     }
 
     public void keyPressed(KeyEvent e) {
-        player1.keyPressed(e);
+       Player1.keyPressed(e);
 //        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 //            player1.setDx(-20);
 //
@@ -127,7 +127,7 @@ public class Floor1 extends JPanel implements ActionListener, KeyListener{
     }
 
     public void keyReleased(KeyEvent e) {
-        player1.keyReleased(e);
+        Player1.keyReleased(e);
     }
 
     private class player extends Rectangle {
