@@ -6,18 +6,13 @@
 package views;
 
 import controllers.FrameTester;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JPanel;
 import entities.Player;
 
 /**
