@@ -5,6 +5,7 @@
  */
 package views;
 
+import controllers.FrameTester;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -33,18 +34,21 @@ public class PlayerCreator extends JPanel implements ActionListener {
     private JSlider ageSlider;
     private JLabel intelligence;
     private JSlider intelligenceSlider;
-    private JLabel atractiveness;
+    private JLabel attractiveness;
     private JSlider attractSlider; 
     private JLabel charisma;
     private JSlider charismaSlider;
     private JLabel luck;
     private JSlider luckSlider;
     private JButton MakePlayer;
-    private int i;
     private Player Player1;
+    private FrameTester Tester;
+    private TestFrame Frame;
     
     PlayerCreator(){
-        
+    Frame  = new TestFrame();
+    
+    Frame.setLayout(new GridLayout(9,2));
    
     FirstName = new JLabel ("First Name");
     
@@ -70,7 +74,7 @@ public class PlayerCreator extends JPanel implements ActionListener {
     intelligenceSlider.setPaintTicks(true);
     intelligenceSlider.setPaintLabels(true);
     
-    atractiveness = new JLabel("Attractiveness");
+    attractiveness = new JLabel("Attractiveness");
     
     attractSlider = new JSlider(0,10,0);
     attractSlider.setMajorTickSpacing(5);
@@ -92,9 +96,21 @@ public class PlayerCreator extends JPanel implements ActionListener {
     luckSlider.setPaintTicks(true);
     luckSlider.setPaintLabels(true);
     
-    MakePlayer = new JButton("Create Player"); 
+    MakePlayer = new JButton("Create Player");
     
-    i = 0;
+    Frame.add(FirstName);
+    Frame.add(fNameField);
+    Frame.add(LastName);
+    Frame.add(lNameField);
+    Frame.add(age);
+    Frame.add(ageSlider);
+    Frame.add(intelligence);
+    Frame.add(intelligenceSlider);
+    Frame.add(attractiveness);
+    Frame.add(attractSlider);
+    
+    
+   
   
     
     
@@ -116,7 +132,7 @@ public class PlayerCreator extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object clickedButton = e.getSource();
         
-        if(clickedButton == MakePlayer && i == 0){
+        if(clickedButton == MakePlayer){
             Player1 = new Player(fNameField.getText(),
                                  lNameField.getText(),
                                  ageSlider.getValue(),
@@ -124,20 +140,21 @@ public class PlayerCreator extends JPanel implements ActionListener {
                                  luckSlider.getValue(),
                                  attractSlider.getValue(),
                                  charismaSlider.getValue());
-            MakePlayer.setText("Update Player");
-            i = 1;
-            repaint();
-        }
-        if(clickedButton == MakePlayer && i == 1){
             
-            getPlayer1().setfName(fNameField.getText());
-            getPlayer1().setlName(lNameField.getText());
-            getPlayer1().setAge(ageSlider.getValue());
-            getPlayer1().setIntelligence(intelligenceSlider.getValue());
-            getPlayer1().setLuck(luckSlider.getValue());
-            getPlayer1().setAttractiveness(attractSlider.getValue());
-            getPlayer1().setCharisma(charismaSlider.getValue());
+            
+            
+            
         }
+//        if(clickedButton == MakePlayer){
+//            
+//            getPlayer1().setfName(fNameField.getText());
+//            getPlayer1().setlName(lNameField.getText());
+//            getPlayer1().setAge(ageSlider.getValue());
+//            getPlayer1().setIntelligence(intelligenceSlider.getValue());
+//            getPlayer1().setLuck(luckSlider.getValue());
+//            getPlayer1().setAttractiveness(attractSlider.getValue());
+//            getPlayer1().setCharisma(charismaSlider.getValue());
+//        }
     }
 
     /**
