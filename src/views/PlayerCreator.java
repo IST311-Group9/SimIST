@@ -19,7 +19,7 @@ import entities.Player;
  *
  * @author Adam
  */
-public class PlayerCreator implements ActionListener {
+public class PlayerCreator{
     
     private JLabel FirstName;
     private JTextField fNameField;
@@ -93,7 +93,40 @@ public class PlayerCreator implements ActionListener {
     luckSlider.setPaintLabels(true);
     
     MakePlayer = new JButton("Create Player");
+    MakePlayer.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Player1 = new Player(fNameField.getText(),
+                                 lNameField.getText(),
+                                 ageSlider.getValue(),
+                                 intelligenceSlider.getValue(),
+                                 luckSlider.getValue(),
+                                 attractSlider.getValue(),
+                                 charismaSlider.getValue());
+            
+            Tester = new FrameTester(Player1);
+            Frame.dispose();
+        }
+    });
+    
+    
     Reset = new JButton("Reset");
+    Reset.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            fNameField.setText("");
+            lNameField.setText("");
+            ageSlider.setValue(20);
+            intelligenceSlider.setValue(0);
+            attractSlider.setValue(0);
+            luckSlider.setValue(0);
+            charismaSlider.setValue(0);
+            Frame.repaint();
+            
+        }
+    });
     
     Frame.add(FirstName);
     Frame.add(fNameField);
@@ -117,35 +150,35 @@ public class PlayerCreator implements ActionListener {
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        Object o = e.getSource();
-        
-        if(o == MakePlayer)
-            Player1 = new Player(fNameField.getText(),
-                                 lNameField.getText(),
-                                 ageSlider.getValue(),
-                                 intelligenceSlider.getValue(),
-                                 luckSlider.getValue(),
-                                 attractSlider.getValue(),
-                                 charismaSlider.getValue());
-            System.out.println("test");
-            Tester = new FrameTester(Player1);
-            Frame.dispose();
-               
-        if(o == Reset)
-            fNameField.setText("");
-            lNameField.setText("");
-            ageSlider.setValue(20);
-            intelligenceSlider.setValue(0);
-            attractSlider.setValue(0);
-            luckSlider.setValue(0);
-            charismaSlider.setValue(0);
-            Frame.repaint();
-            System.out.println("Test");
+//    @Override
+//    public void actionPerformed(ActionEvent e) {
+//        Object o = e.getSource();
+//        
+//        if(o == MakePlayer)
+//            Player1 = new Player(fNameField.getText(),
+//                                 lNameField.getText(),
+//                                 ageSlider.getValue(),
+//                                 intelligenceSlider.getValue(),
+//                                 luckSlider.getValue(),
+//                                 attractSlider.getValue(),
+//                                 charismaSlider.getValue());
+//            System.out.println("test");
+//            Tester = new FrameTester(Player1);
+//            Frame.dispose();
+//               
+//        if(o == Reset)
+//            fNameField.setText("");
+//            lNameField.setText("");
+//            ageSlider.setValue(20);
+//            intelligenceSlider.setValue(0);
+//            attractSlider.setValue(0);
+//            luckSlider.setValue(0);
+//            charismaSlider.setValue(0);
+//            Frame.repaint();
+//            System.out.println("Test");
             
         
-    }
+    //}
         
     public Player getPlayer1() {
         return Player1;
