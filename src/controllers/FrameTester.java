@@ -33,7 +33,9 @@ public class FrameTester {
 
     private ClockPanel clock;
 
-    public FrameTester() {
+    public FrameTester(Player Player1) {
+        
+        this.Player1 = Player1;
         frame = new TestFrame();
         frame.setLocationRelativeTo(null);
         

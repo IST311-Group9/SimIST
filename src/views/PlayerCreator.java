@@ -44,6 +44,7 @@ public class PlayerCreator implements ActionListener {
     private Player Player1;
     private FrameTester Tester;
     private TestFrame Frame;
+    private JButton Reset;
     
     PlayerCreator(){
     Frame  = new TestFrame();
@@ -97,6 +98,7 @@ public class PlayerCreator implements ActionListener {
     luckSlider.setPaintLabels(true);
     
     MakePlayer = new JButton("Create Player");
+    Reset = new JButton("Reset");
     
     Frame.add(FirstName);
     Frame.add(fNameField);
@@ -113,6 +115,7 @@ public class PlayerCreator implements ActionListener {
     Frame.add(luck);
     Frame.add(luckSlider);
     Frame.add(MakePlayer);
+    Frame.add(Reset);
     
     Frame.repaint();
     Frame.revalidate();
@@ -138,9 +141,9 @@ public class PlayerCreator implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object clickedButton = e.getSource();
+        Object o = e.getSource();
         
-        if(clickedButton == MakePlayer){
+        if(o == MakePlayer)
             Player1 = new Player(fNameField.getText(),
                                  lNameField.getText(),
                                  ageSlider.getValue(),
@@ -148,26 +151,25 @@ public class PlayerCreator implements ActionListener {
                                  luckSlider.getValue(),
                                  attractSlider.getValue(),
                                  charismaSlider.getValue());
+            System.out.println("test");
+            Tester = new FrameTester(Player1);
+            Frame.dispose();
+               
+        if(o == Reset)
+            fNameField.setText("");
+            lNameField.setText("");
+            ageSlider.setValue(20);
+            intelligenceSlider.setValue(0);
+            attractSlider.setValue(0);
+            luckSlider.setValue(0);
+            charismaSlider.setValue(0);
+            Frame.repaint();
+            Frame.revalidate();
+            System.out.println("Test");
             
-            
-            
-            
-        }
-//        if(clickedButton == MakePlayer){
-//            
-//            getPlayer1().setfName(fNameField.getText());
-//            getPlayer1().setlName(lNameField.getText());
-//            getPlayer1().setAge(ageSlider.getValue());
-//            getPlayer1().setIntelligence(intelligenceSlider.getValue());
-//            getPlayer1().setLuck(luckSlider.getValue());
-//            getPlayer1().setAttractiveness(attractSlider.getValue());
-//            getPlayer1().setCharisma(charismaSlider.getValue());
-//        }
+        
     }
-
-    /**
-     * @return the Player1
-     */
+        
     public Player getPlayer1() {
         return Player1;
     }
