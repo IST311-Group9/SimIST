@@ -119,24 +119,7 @@ public class PlayerCreator implements ActionListener {
     
     Frame.repaint();
     Frame.revalidate();
-    
-    
-   
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    }
-    public void setup(){
-        
-        
-        
+
     }
 
     @Override
@@ -164,7 +147,6 @@ public class PlayerCreator implements ActionListener {
             luckSlider.setValue(0);
             charismaSlider.setValue(0);
             Frame.repaint();
-            Frame.revalidate();
             System.out.println("Test");
             
         
