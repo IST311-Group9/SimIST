@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import views.*;
+import entities.Player;
 
 /**
  *
@@ -28,13 +29,15 @@ public class FrameTester {
     private JButton menuPanel;
     private JButton floor1;
     private JButton cybertorium;
+    private Player Player1;
 
     private ClockPanel clock;
 
     public FrameTester() {
         frame = new TestFrame();
         frame.setLocationRelativeTo(null);
-        //Set();
+        
+        setup();
         refreshPane();
     }
 
@@ -45,7 +48,7 @@ public class FrameTester {
         panel.requestFocusInWindow();
     }
 
-    private void setupButtonPanel() {
+    private void setup() {
         frame.setLayout(new GridLayout(2, 3));
 
         auBon = new JButton("Au Bon Pain");

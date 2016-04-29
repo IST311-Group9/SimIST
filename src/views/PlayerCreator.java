@@ -24,7 +24,7 @@ import entities.Player;
  *
  * @author Adam
  */
-public class PlayerCreator extends JPanel implements ActionListener {
+public class PlayerCreator implements ActionListener {
     
     private JLabel FirstName;
     private JTextField fNameField;
@@ -108,6 +108,14 @@ public class PlayerCreator extends JPanel implements ActionListener {
     Frame.add(intelligenceSlider);
     Frame.add(attractiveness);
     Frame.add(attractSlider);
+    Frame.add(charisma);
+    Frame.add(charismaSlider);
+    Frame.add(luck);
+    Frame.add(luckSlider);
+    Frame.add(MakePlayer);
+    
+    Frame.repaint();
+    Frame.revalidate();
     
     
    
