@@ -61,7 +61,7 @@ public class Floor1 extends JPanel implements ActionListener, KeyListener{
         entries.add(new RoomEntry(206, 50, 200, rooms.get(2)));
         entries.add(new RoomEntry(208, 50, 250, rooms.get(3)));
         entries.add(new RoomEntry(210, 50, 300, rooms.get(4)));
-        player1 = new Player("Test", "Player", 21);
+        player1 = new Player("Test", "Player", 21,0,0,0,0);
         cust1 = new Customer(new Dimension(800, 600));
         charMove1 = new CharacterMovement();
         abp1 = new AuBonPainPanel(cust1, charMove1);

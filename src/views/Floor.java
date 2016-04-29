@@ -39,7 +39,7 @@ public class Floor extends JPanel implements ActionListener, KeyListener {
        //this.floorImage = floorImage;
        rooms = new ArrayList<>();
        rooms.add(new Room(3, 50,50));
-       player1 = new Player("Test", "Player", 21);
+       player1 = new Player("Test", "Player", 21,0,0,0,0);
        this.addKeyListener(this);
        setFocusable(true);
        requestFocusInWindow();

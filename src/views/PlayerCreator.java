@@ -5,18 +5,25 @@
  */
 package views;
 
-import java.awt.LayoutManager;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
+import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JPanel;
+import entities.Player;
 
 /**
  *
  * @author Adam
  */
-public class PlayerCreator extends JFrame implements LayoutManager{
+public class PlayerCreator extends JPanel implements ActionListener {
     
     private JLabel FirstName;
     private JTextField fNameField;
@@ -32,7 +39,9 @@ public class PlayerCreator extends JFrame implements LayoutManager{
     private JSlider charismaSlider;
     private JLabel luck;
     private JSlider luckSlider;
-    private JButton Start;
+    private JButton MakePlayer;
+    private int i;
+    private Player Player1;
     
     PlayerCreator(){
         
@@ -83,7 +92,10 @@ public class PlayerCreator extends JFrame implements LayoutManager{
     luckSlider.setPaintTicks(true);
     luckSlider.setPaintLabels(true);
     
-    Start = new JButton("Start");    
+    MakePlayer = new JButton("Create Player"); 
+    
+    i = 0;
+  
     
     
     
@@ -99,6 +111,43 @@ public class PlayerCreator extends JFrame implements LayoutManager{
         
         
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object clickedButton = e.getSource();
+        
+        if(clickedButton == MakePlayer && i == 0){
+            Player1 = new Player(fNameField.getText(),
+                                 lNameField.getText(),
+                                 ageSlider.getValue(),
+                                 intelligenceSlider.getValue(),
+                                 luckSlider.getValue(),
+                                 attractSlider.getValue(),
+                                 charismaSlider.getValue());
+            MakePlayer.setText("Update Player");
+            i = 1;
+            repaint();
+        }
+        if(clickedButton == MakePlayer && i == 1){
+            
+            getPlayer1().setfName(fNameField.getText());
+            getPlayer1().setlName(lNameField.getText());
+            getPlayer1().setAge(ageSlider.getValue());
+            getPlayer1().setIntelligence(intelligenceSlider.getValue());
+            getPlayer1().setLuck(luckSlider.getValue());
+            getPlayer1().setAttractiveness(attractSlider.getValue());
+            getPlayer1().setCharisma(charismaSlider.getValue());
+        }
+    }
+
+    /**
+     * @return the Player1
+     */
+    public Player getPlayer1() {
+        return Player1;
+    }
+
+   
     
     
 }
